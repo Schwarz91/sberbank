@@ -72,16 +72,6 @@
     <!--#endif -->
     <!--#include virtual="/$context/rest/merchantlogin.do?mdOrder=$mdOrder" set="merchantLogin" -->
     <div class="container">
-      <div class="row">
-        <div class="logo col2"><img src="img/main-logo-ru.png" alt="Сбербанк" class="logo-bank"/></div>
-        <div class="merchant-logo col2"><img src="../<!--#echo var="merchantLogin" -->/custom/logo.png" height="64" alt="" onerror='$(this).parent().hide()'/></div>
-      </div>
-      <div class="row informationPayment">
-        <div class="row"><span class="label-amount">Сумма к оплате:</span><span id="amount" class="bold">--.-- RUB</span></div>
-        <div class="row"><span class="label-orderId">Номер заказа:</span><span id="orderNumber" class="bold">--</span></div>
-        <div class="row"><span class="label-description">Описание платежа:</span><span id="description"></span></div>
-        <div class="row" style="display: none;" id="bonusBlock"><span class="logo-spasibo-mini"></span><span class="label-description">Бонусы "Спасибо":</span><span id="bonusAmount" class="bold"></span></div>
-      </div>
       <div class="cardContainer">
         <form name="PaymentForm" action="#" method="post" id="formPayment" autocomplete="off">
           <input type="hidden" id="expiry"/>
@@ -101,9 +91,6 @@
             <option value="12">12 - декабрь</option>
           </select>
           <select style="display:none;" name="YYYY" id="year"></select>
-          <div class="timer"><span class="label-timer">До окончания сессии осталось:</span>
-            <div id="numberCountdown"></div>
-          </div>
           <div class="row fields">
             <div class="row">
               <div class="col-label">
@@ -195,7 +182,7 @@
                 </div>
               </div>
             </div>
-            <div id="emailCheckboxBlock" class="row">
+            <div id="emailCheckboxBlock" style="display:none;" class="row">
               <div style="text-align: right;" class="col-label">
                 <input type="checkbox" id="showEmail" class="styled"/>
               </div>
@@ -209,11 +196,11 @@
                 <input type="checkbox" id="createBinding" class="styled"/>
               </div>
               <div class="col-input">
-                <label for="createBinding">Запомнить данные этой карты</label>
+                <label for="createBinding">Запомнить карту</label>
               </div>
             </div>
 
-            <div id="agreeBlock" class="row agreeBox">
+            <div id="agreeBlock" style="display:none;" class="row agreeBox">
               <div style="text-align: right;" class="col-label">
                 <input type="checkbox" id="iAgree" class="styled"/>
               </div>
@@ -235,11 +222,15 @@
               </div>
             </div>
           </div>
+          <div class="row informationPayment">
+            <div class="row"><span class="label-amount">Сумма к оплате:</span><span id="amount" class="bold">--.-- RUB</span></div>
+            <div class="row" style="display: none;" id="bonusBlock"><span class="logo-spasibo-mini"></span><span class="label-description">Бонусы "Спасибо":</span><span id="bonusAmount" class="bold"></span></div>
+          </div>
           <div class="row payment-button">
             <div class="row">
               <div class="col-label"></div>
               <div class="col-input">
-                <button name="SendPayment" type="button" id="buttonPayment" class="btn">Оплатить</button>
+                <button name="SendPayment" type="button" id="buttonPayment" class="btn">Оплатить покупку</button>
                 <button name="SendPayment" type="button" id="buttonBindingPayment2" style="display:none;" class="btn">Оплатить</button>
               </div>
             </div>
@@ -255,9 +246,6 @@
           <input type="password" name="cvc" id="bindingCvc" value=""/>
           <input type="button" value="Оплатить" id="buttonBindingPayment"/>
         </form>
-        <div id="modal-binding" title="Удаление карты">
-          <p><span style="float:left; margin:0 7px 20px 0;" class="ui-icon ui-icon-alert"></span>Вы действительно хотите удалить привязанную карту?</p>
-        </div>
       </div>
       <div class="footer">
         <div class="system-logos">

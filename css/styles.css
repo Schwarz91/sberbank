@@ -8,7 +8,7 @@ html,
   height: 100%;
 }
 body {
-  background-color: #f7f7f7;
+  background-color: #FFFFFF;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #393939;
@@ -41,14 +41,11 @@ a:hover {
   text-align: center;
 }
 .container {
-  background-color: #fcfcfc;
+  background-color: #FFFFFF;
   margin: 0 auto;
   max-width: 850px;
   min-height: 100%;
   height: auto !important;
-  -webkit-box-shadow: 0 0px 25px #e5e5e5;
-  -moz-box-shadow: 0 0px 25px #e5e5e5;
-  box-shadow: 0 0px 25px #e5e5e5;
   padding: 20px 70px;
   box-sizing: border-box;
 }
@@ -120,11 +117,7 @@ input[type="tel"]:focus {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background: #64c449;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #248c0d), color-stop(1, #5ab73a));
-  background: -ms-linear-gradient(bottom, #248c0d, #5ab73a);
-  background: -moz-linear-gradient(center bottom, #248c0d 0%, #5ab73a 100%);
-  background: -o-linear-gradient(#5ab73a, #248c0d);
+  background: #0052CC;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5ab73a', endColorstr='#248c0d', GradientType=0);
 }
 .btn:hover {
@@ -267,13 +260,6 @@ input[type="tel"]:focus {
 .cardContainer {
   margin: 20px 0;
   box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 2px 7px #e1e1e1;
-  -moz-box-shadow: 0px 2px 7px #e1e1e1;
-  box-shadow: 0px 2px 7px #e1e1e1;
-  border: 1px solid #dcdcdc;
   background-color: #ffffff;
   padding: 10px 20px;
 }
@@ -747,7 +733,9 @@ input[type="checkbox"] {
   text-align: justify;
 }
 .footer .system-logos {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .footer .logo {
   display: inline-block;
@@ -757,7 +745,6 @@ input[type="checkbox"] {
 .footer .logo.visa {
   width: 51px;
   height: 17px;
-  position: relative;
   top: -11px;
   background-position: -2px -2px;
   background-position-x: -2px;
@@ -790,7 +777,6 @@ input[type="checkbox"] {
   width: 52px;
   height: 20px;
   top: -10px;
-  position: relative;
   background-position: -380px 0;
   background-position-x: -380px;
 }
