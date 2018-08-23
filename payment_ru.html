@@ -91,42 +91,40 @@
             <option value="12">12 - декабрь</option>
           </select>
           <select style="display:none;" name="YYYY" id="year"></select>
-          <div class="row fields">
-            <div class="row">
-              <div class="col-label">
-                <label for="iPAN_sub" class="col-label">Номер карты</label>
+          <div class="payment-card">
+            <div class="payment-card__front">
+              <div class="row">
+                <div class="col-label">
+                  <label for="iPAN_sub" class="col-label">Номер карты</label>
+                </div>
+                <div class="block-input-pan col-input"><span id="iPAN-validation"><span class="input-icon">
+                      <select id="combobox" name="bindingId" type="tel" style="display:none"></select>
+                      <input id="dummy-pan" type="tel" placeholder="0000 0000 0000 0000" autocomplete="off"/>
+                      <input type="hidden" id="iPAN" name="$PAN" autocomplete="off"/><span id="typecard-icon"></span></span><a href="#" id="delete-binding" style="display:none;" title="Удалить карту" class="trash"></a></span></div>
               </div>
-              <div class="block-input-pan col-input"><span id="iPAN-validation"><span class="input-icon">
-                    <select id="combobox" name="bindingId" type="tel" style="display:none"></select>
-                    <input id="dummy-pan" type="tel" placeholder="0000 0000 0000 0000" autocomplete="off"/>
-                    <input type="hidden" id="iPAN" name="$PAN" autocomplete="off"/><span id="typecard-icon"></span></span><a href="#" id="delete-binding" style="display:none;" title="Удалить карту" class="trash"></a></span></div>
-            </div>
-            <div class="row basicInfo">
-              <div class="col-label">
-                <label for="input-month" class="col-label">Действительна до</label>
+              <div class="row basicInfo">
+                <div id="year-validation" class="col-input">
+                  <input id="input-month" type="tel" placeholder="MM" maxlength="2" autocomplete="off" class="date" name="creditCardMonth"/><span class="delimiter">/</span>
+                  <input id="input-year" type="tel" placeholder="ГГ" maxlength="2" autocomplete="off" class="date" name="creditCardYear"/>
+                </div>
               </div>
-              <div id="year-validation" class="col-input">
-                <input id="input-month" type="tel" placeholder="MM" maxlength="2" autocomplete="off" class="date" name="creditCardMonth"/><span class="delimiter">/</span>
-                <input id="input-year" type="tel" placeholder="ГГ" maxlength="2" autocomplete="off" class="date" name="creditCardYear"/>
-              </div>
-            </div>
-            <div class="row basicInfo">
-              <div class="col-label">
-                <label for="iTEXT" class="col-label">Имя держателя карты</label>
-              </div>
-              <div class="col-input"><span id="iTEXT-validation">
+              <div class="row basicInfo">
+                <div class="col-input"><span id="iTEXT-validation">
                   <input id="iTEXT" type="text" name="cardHolder" placeholder="Имя фамилия латиницей" maxlength="90" autocomplete="off"/></span></div>
-            </div>
-            <div class="row">
-              <div class="col-label">
-                <label for="iCVC" class="col-label">CVC2/CVV2</label>
               </div>
-              <div class="col-input"><span id="iCVC-validation">
-                  <input id="iCVC" type="password" placeholder="***" maxlength="3" class="cvc" name="creditCardCvc"/>
-                  <div class="hint"></div>
-                  <div class="hint-baloon">
-                    <div class="arrow-baloon"></div><span>Код CVC2 (CVV2) - это трехзначное число, обозначенное на обороте карты.</span>
-                  </div></span></div>
+            </div>
+            <div class="payment-card__back">
+              <div class="row">
+                <div class="col-label">
+                  <label for="iCVC" class="col-label">CVC2/CVV2</label>
+                </div>
+                <div class="col-input"><span id="iCVC-validation">
+                    <input id="iCVC" type="password" placeholder="***" maxlength="3" class="cvc" name="creditCardCvc"/>
+                    <div class="hint"></div>
+                    <div class="hint-baloon">
+                      <div class="arrow-baloon"></div><span>Код CVC2 (CVV2) - это трехзначное число, обозначенное на обороте карты.</span>
+                    </div></span></div>
+              </div>
             </div>
           </div>
           <div id="spasibo_block" style="display:none;">
@@ -231,7 +229,7 @@
               <div class="col-label"></div>
               <div class="col-input">
                 <button name="SendPayment" type="button" id="buttonPayment" class="btn">Оплатить покупку</button>
-                <button name="SendPayment" type="button" id="buttonBindingPayment2" style="display:none;" class="btn">Оплатить</button>
+                <button name="SendPayment" type="button" id="buttonBindingPayment2" style="display:none;" class="btn">Оплатить покупку</button>
               </div>
             </div>
           </div>
@@ -249,6 +247,7 @@
       </div>
       <div class="footer">
         <div class="system-logos">
+          <div class="logo sber"></div>
           <div class="logo mir"></div>
           <div class="logo visa"></div>
           <div class="logo mastercard"></div>
